@@ -9,7 +9,11 @@ export default async function middleware(req: NextRequest) {
     const isTelegramMiniApp = device.type === 'mobile' && browser.name === 'Chrome WebView';
     const isTelegramDesktopApp = device.type === undefined && browser.name === 'Edge';
  
-  if ((isTelegramMiniApp || isTelegramDesktopApp) && isMainRoute) {
+  if (isTelegramMiniApp && isMainRoute) {
+    return NextResponse.redirect(new URL('/welcome', req.nextUrl))
+  }
+
+  if (isTelegramDesktopApp && isMainRoute) {
     return NextResponse.redirect(new URL('/welcome', req.nextUrl))
   }
  
