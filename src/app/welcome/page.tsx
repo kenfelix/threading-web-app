@@ -8,9 +8,6 @@ import Image from "next/image";
 import WebApp from '@twa-dev/sdk'
 import { useEffect } from "react";
 
-// WebApp.ready();
-// WebApp.expand();
-
 
 export default function Welcome() {
   useEffect(() => {

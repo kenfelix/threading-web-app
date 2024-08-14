@@ -1,7 +1,10 @@
+'use client'
+
 import Link from "next/link"
 import MaxWidthWrapper from "./MaxWidthWrapper"
 import Image from "next/image";
 import { buttonVariants } from "./ui/button";
+import { TonConnectButton } from "@tonconnect/ui-react";
 
 const TelegramNavbar = () => {
     return ( 
@@ -32,14 +35,7 @@ const TelegramNavbar = () => {
                                 })}>
                                 Community
                             </Link>
-                            <Link
-                                href='https://t.me/emeka_test_bot/emeka_test'
-                                target='_blank'
-                                className={buttonVariants({
-                                    size: "sm"
-                                })}>
-                                Get Started
-                            </Link>
+                            <TonConnectButton className='' />
                         </>
                     </div>
                 </div>
