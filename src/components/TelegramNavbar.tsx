@@ -2,8 +2,6 @@ import Link from "next/link"
 import MaxWidthWrapper from "./MaxWidthWrapper"
 import Image from "next/image";
 import { buttonVariants } from "./ui/button";
-import Banner from "./Banner";
-import MobileNav from "./MobileNav";
 
 const TelegramNavbar = () => {
     return ( 
