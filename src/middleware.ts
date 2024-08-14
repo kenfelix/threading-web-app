@@ -4,6 +4,7 @@ export default async function middleware(req: NextRequest) {
     const { device, browser } = userAgent(req)
     const path = req.nextUrl.pathname
     const isMainRoute = "/".includes(path)
+    console.log(device, browser)
     
     const isTelegramMiniApp = device.type === 'mobile' && browser.name === 'Chrome WebView';
  
