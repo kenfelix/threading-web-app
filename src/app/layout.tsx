@@ -5,6 +5,7 @@ import { cn } from "@/lib/utils";
 import { ThemeProvider } from "@/components/theme-provider"
 import Navbar from "@/components/Navbar";
 import Script from "next/script";
+import Banner from "@/components/Banner";
 
 const inter = Inter({ subsets: ["latin"] });
 const roboto = Roboto({ weight: ["100", "300", "400", "500", "700", "900"], subsets: ["latin"] });
@@ -32,7 +33,7 @@ export default function RootLayout({
             enableSystem
             disableTransitionOnChange
         >
-          <Navbar/>
+          <Banner/>
             {children}
           </ThemeProvider>
       </body>

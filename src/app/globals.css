@@ -90,3 +90,17 @@
 .scrollbar-thumb-rounded::-webkit-scrollbar-thumb {
   border-radius: 7px;
 }
+
+@keyframes carousel {
+    0% { transform: translateX(0%); }
+    25% { transform: translateX(0%); }
+    50% { transform: translateX(-100%); }
+    75% { transform: translateX(-100%); }
+    100% { transform: translateX(-200%); }
+  }
+
+  .animate-carousel {
+    width: 100%;
+    display: flex;
+    animation: carousel 15s infinite linear;
+  }

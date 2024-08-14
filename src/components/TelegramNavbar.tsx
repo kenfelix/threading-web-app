@@ -5,7 +5,7 @@ import { buttonVariants } from "./ui/button";
 import Banner from "./Banner";
 import MobileNav from "./MobileNav";
 
-const Navbar = () => {
+const TelegramNavbar = () => {
     return ( 
         <nav className="sticky h-14 inset-x-0 top-0 z-30 w-full border-b border-gray-200 bg-white/75 backdrop-blur-lg transition-all">
             <MaxWidthWrapper>
@@ -23,18 +23,8 @@ const Navbar = () => {
                   />
                     </Link>
 
-                    {/* todo: add mobile navbar */}
-                    <MobileNav />
-
-                    <div className="hidden items-center space-x-4 sm:flex">
+                    <div className="flex items-center space-x-4">
                         <>
-                            <Link href='/docs'
-                                className={buttonVariants({
-                                    variant: "ghost",
-                                    size: "sm"
-                                })}>
-                                Documentation
-                            </Link>
                             <Link
                                 href='https://t.me/+bn_7kVHdDSNmY2Q0'
                                 target='_blank'
@@ -60,4 +50,4 @@ const Navbar = () => {
     )
 }
 
-export default Navbar
+export default TelegramNavbar
