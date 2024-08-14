@@ -1,37 +1,13 @@
 import { NextRequest, NextResponse, userAgent } from 'next/server'
-// import { decrypt } from '@/app/lib/session'
-import { cookies } from 'next/headers'
- 
-// 1. Specify protected and public routes
-const protectedRoutes = ['/dashboard']
-const publicRoutes = ['/login', '/signup', '/']
- 
+
 export default async function middleware(req: NextRequest) {
-  // 2. Check if the current route is protected or public
-    const path = req.nextUrl.pathname
-    const { device, browser, engine } = userAgent(req)
-    const isProtectedRoute = protectedRoutes.includes(path)
-    const isPublicRoute = publicRoutes.includes(path)
+    const { device, browser} = userAgent(req)
     
-    console.log(device, browser, engine)
+    const isTelegramMiniApp = device.type === 'mobile' && browser.name === 'Chrome WebView';
  
-  // 3. Decrypt the session from the cookie
-//   const cookie = cookies().get('session')?.value
-//   const session = await decrypt(cookie)
- 
-  // 5. Redirect to /login if the user is not authenticated
-//   if (isProtectedRoute && !session?.userId) {
-//     return NextResponse.redirect(new URL('/login', req.nextUrl))
-//   }
- 
-//   // 6. Redirect to /dashboard if the user is authenticated
-//   if (
-//     isPublicRoute &&
-//     session?.userId &&
-//     !req.nextUrl.pathname.startsWith('/dashboard')
-//   ) {
-//     return NextResponse.redirect(new URL('/dashboard', req.nextUrl))
-//   }
+  if (isTelegramMiniApp) {
+    return NextResponse.redirect(new URL('/welcome', req.nextUrl))
+  }
  
   return NextResponse.next()
 }
