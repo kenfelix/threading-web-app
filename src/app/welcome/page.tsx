@@ -5,14 +5,18 @@ import Link from "next/link";
 import { ArrowRight } from 'lucide-react'
 import { buttonVariants } from "@/components/ui/button";
 import Image from "next/image";
-import "@twa-dev/sdk";
 import WebApp from '@twa-dev/sdk'
+import { useEffect } from "react";
 
 // WebApp.ready();
 // WebApp.expand();
 
 
 export default function Welcome() {
+  useEffect(() => {
+    WebApp.ready();
+    WebApp.expand();
+  }, [])
   return (
     <>
       <MaxWidthWrapper className="mb-12 mt-28 sm:mt-40 flex-col items-center justify-center text-center">
