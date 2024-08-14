@@ -6,7 +6,7 @@ export default async function middleware(req: NextRequest) {
     const isMainRoute = "/".includes(path)
     console.log(device, browser)
     
-    const isTelegramMiniApp = device.type === 'mobile' && browser.name === 'Chrome WebView';
+    const isTelegramMiniApp = device.type === 'mobile' && browser.name?.includes(' ');
     const isTelegramDesktopApp = device.type === undefined && browser.name === 'Edge';
  
   if (isTelegramMiniApp && isMainRoute) {
