@@ -1,9 +1,9 @@
-import Link from "next/link"
-import MaxWidthWrapper from "./MaxWidthWrapper"
+import { scrollToSection } from "@/lib/utils";
 import Image from "next/image";
-import { buttonVariants } from "./ui/button";
-import Banner from "./Banner";
+import Link from "next/link";
+import MaxWidthWrapper from "./MaxWidthWrapper";
 import MobileNav from "./MobileNav";
+import { buttonVariants } from "./ui/button";
 
 const Navbar = () => {
     return ( 
@@ -45,8 +45,8 @@ const Navbar = () => {
                                 Community
                             </Link>
                             <Link
-                                href='https://t.me/emeka_test_bot/emeka_test'
-                                target='_blank'
+                                href='#'
+                                onClick={() => scrollToSection("stepsRef")}
                                 className={buttonVariants({
                                     size: "sm"
                                 })}>

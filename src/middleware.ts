@@ -4,18 +4,15 @@ export default async function middleware(req: NextRequest) {
     const { device, browser } = userAgent(req)
     const path = req.nextUrl.pathname
     const isMainRoute = "/".includes(path)
-    console.log(device, browser)
     
     const isTelegramMiniApp = device.type === 'mobile' && browser.name?.includes(' ');
     const isTelegramDesktopApp = device.type === undefined && browser.name === 'Edge';
  
   if (isTelegramMiniApp && isMainRoute) {
-    console.log(isTelegramMiniApp && isMainRoute)
     return NextResponse.redirect(new URL('/welcome', req.nextUrl))
   }
 
   if (isTelegramDesktopApp && isMainRoute) {
-    console.log(isTelegramDesktopApp && isMainRoute)
     return NextResponse.redirect(new URL('/welcome', req.nextUrl))
   }
  

@@ -1,6 +1,7 @@
 'use client'
 
-import { ArrowRight, Menu } from 'lucide-react'
+import { scrollToSection } from '@/lib/utils'
+import { Menu } from 'lucide-react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { useEffect, useState } from 'react'
@@ -65,11 +66,12 @@ const MobileNav = () => {
                 <li className='my-3 h-px w-full bg-gray-300' />
                 <li>
                     <Link
-                        onClick={() =>
-                        toggleOpen()
+                        onClick={() => {
+                          toggleOpen();
+                          scrollToSection("stepsRef")
                         }
-                        href='https://t.me/emeka_test_bot/emeka_test'
-                        target='_blank'
+                        }
+                        href='#'
                         className={buttonVariants({
                             size: "sm",
                             variant: "ghost"

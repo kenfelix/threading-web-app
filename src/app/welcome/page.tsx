@@ -7,6 +7,7 @@ import { buttonVariants } from "@/components/ui/button";
 import Image from "next/image";
 import WebApp from '@twa-dev/sdk'
 import { useEffect } from "react";
+import { scrollToSection } from "@/lib/utils";
 
 
 export default function Welcome() {
@@ -33,7 +34,10 @@ export default function Welcome() {
         <Link className={buttonVariants({
           size: 'lg',
           className: 'mt-5',
-        })} href='/dashboard'>
+        })}
+          href='#'
+          onClick={() => scrollToSection("stepsRef")}
+        >
           Get Started <ArrowRight className="ml-2 h-5 w-5" />
         </Link>
       </MaxWidthWrapper>
@@ -78,7 +82,65 @@ export default function Welcome() {
         </div>
       </div>
 
+      {/* Feature section */}
+      <div id="stepsRef" className="mx-auto mb-32 mt-32 max-w-5xl sm:mt-56">
+        <div className="mb-12 px-6 lg:px-8">
+          <div className="mx-auto max-w-2xl sm:text-center">
+            <h2 className="mt-2 font-bold text-4xl text-gray-900 sm:text-5xl">
+              Start earning in minutes
+            </h2>
+            <p className="mt-4 text-lg text-gray-600">
+              Join our community, invite just two persons and start earning.
+            </p>
+          </div>
+        </div>
 
+        {/* steps */}
+        <ol className="my-8 space-y-4 pt-8 md:flex md:space-x-12 md:space-y-0">
+          <li className="md:flex-1">
+            <div className="flex flex-col space-y-2 border-l-4 border-zinc-300 py-2 pl-4 md:border-l-0 md:border-t-2 md:pb-0 md:pl-0 md:pt-4">
+              <span className="text-sm font-medium text-blue-600">Step 1</span>
+              <span className="text-xl font-semibold">Join Threading</span>
+              <span className="mt-2 text-zinc-700">
+                Follow refeeral link or open threading{' '}
+                <Link
+                  href='https://t.me/emeka_test_bot/emeka_test'
+                  className="text-blue-700 underline underline-offset-2">
+                  miniapp
+                </Link>
+                .
+              </span>
+            </div>
+          </li>
+          <li className="md:flex-1">
+            <div className="flex flex-col space-y-2 border-l-4 border-zinc-300 py-2 pl-4 md:border-l-0 md:border-t-2 md:pb-0 md:pl-0 md:pt-4">
+              <span className="text-sm font-medium text-blue-600">Step 2</span>
+              <span className="text-xl font-semibold">Connect Wallet</span>
+              <span className="mt-2 text-zinc-700">
+                connect your TON compatible blockchain wallet and join with just 0.3ton.
+              </span>
+            </div>
+          </li>
+          <li className="md:flex-1">
+            <div className="flex flex-col space-y-2 border-l-4 border-zinc-300 py-2 pl-4 md:border-l-0 md:border-t-2 md:pb-0 md:pl-0 md:pt-4">
+              <span className="text-sm font-medium text-blue-600">Step 3</span>
+              <span className="text-xl font-semibold">Invite Friends</span>
+              <span className="mt-2 text-zinc-700">
+                Invite just 2 friends to start earning.
+              </span>
+            </div>
+          </li>
+          <li className="md:flex-1">
+            <div className="flex flex-col space-y-2 border-l-4 border-zinc-300 py-2 pl-4 md:border-l-0 md:border-t-2 md:pb-0 md:pl-0 md:pt-4">
+              <span className="text-sm font-medium text-blue-600">Step 4</span>
+              <span className="text-xl font-semibold">Increase your Earnings</span>
+              <span className="mt-2 text-zinc-700">
+                Upgrade to unlock new levels and earn up to 100ton.
+              </span>
+            </div>
+          </li>
+        </ol>
+      </div>
     </>
   );
 }

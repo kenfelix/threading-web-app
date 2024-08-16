@@ -35,7 +35,7 @@ const TelegramNavbar = () => {
                                 })}>
                                 Community
                             </Link>
-                            <TonConnectButton className='' />
+                            <TonConnectButton  className="appearance-none"/>
                         </>
                     </div>
                 </div>
